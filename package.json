@@ -1,0 +1,28 @@
+{
+  "name": "interviewcoach-ai",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_USE_ENV_PROXY=1 next dev --hostname 0.0.0.0",
+    "build": "next build --webpack",
+    "start": "NODE_USE_ENV_PROXY=1 next start --hostname 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx tests/coach.test.ts"
+  },
+  "dependencies": {
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "lucide-react": "^0.468.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "tsx": "^4.20.0",
+    "tailwindcss": "^4.1.0",
+    "@tailwindcss/postcss": "^4.1.0"
+  }
+}
