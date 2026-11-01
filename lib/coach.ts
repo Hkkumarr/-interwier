@@ -4,8 +4,8 @@ export type Feedback = {criteria:{name:string;score:number|null;explanation:stri
 export const common = ['Tell me about yourself.','Why do you want this role?','Explain one of your projects.','What are your strengths and areas for improvement?','Describe a challenge you handled.','Why should we hire you?'];
 export function extract(description:string){
  const known=['JavaScript','TypeScript','React','Next.js','Node.js','Python','Java','SQL','PostgreSQL','MongoDB','Docker','Kubernetes','AWS','Azure','Git','REST','GraphQL','HTML','CSS','Figma','Excel','Communication','Leadership','Testing','Sales','Marketing','Customer service','Data analysis'];
- const skills=known.filter(s=>description.toLowerCase().includes(s.toLowerCase()));
- const sentences=description.split(/[\n.!?]+/).map(s=>s.trim()).filter(Boolean);
+ const skills=known.filter(skill=>{const escaped=skill.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return new RegExp(`(^|[^a-z0-9])${escaped}(?=$|[^a-z0-9])`,'i').test(description)});
+ const sentences=description.split(/(?:[!?]|\.(?=\s|$)|\n)+/).map(s=>s.trim()).filter(Boolean);
  return {skills:skills.length?skills:['Problem solving','Communication'],responsibilities:sentences.filter(s=>/build|develop|manage|design|collaborat|deliver|analy|support|responsib/i.test(s)).slice(0,5),tools:skills.filter(s=>/docker|git|figma|excel|aws|azure|kubernetes/i.test(s)),experience:sentences.filter(s=>/year|experience|fresher|junior|senior/i.test(s)).slice(0,3)};
 }
 export function questions(job:Job):Question[]{

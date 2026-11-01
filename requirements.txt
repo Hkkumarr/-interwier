@@ -1,0 +1,15 @@
+# InterviewCoach AI is a Node.js / Next.js application.
+# It has NO Python runtime dependencies; pip install -r requirements.txt
+# alone will not install or run the website.
+#
+# Required: Node.js >= 24.5 (24 LTS recommended) and npm.
+# JavaScript dependencies: package.json and exact versions in package-lock.json.
+#
+# Windows / macOS / Linux:
+#   npm run setup
+#   npm run dev
+# Then open http://localhost:3000
+#
+# Optional live AI: LLM_PROVIDER=openai, LLM_API_KEY in .env.local.
+# Optional live research: SEARCH_PROVIDER=tavily, SEARCH_API_KEY in .env.local.
+# No PyTorch, TensorFlow, Python server, CUDA, or GPU is needed for this app.
